@@ -1,0 +1,35 @@
+<div class="body-login">
+    <div class="columna-data">
+        <div class="columna-data-2">
+            <img src="./../../../../assets/img/minimarket.png" alt="logo-minimarket-camarena">
+            <h1>Bienvenido a <br/>Minimarket <span class="seleccionado">Camarena </span></h1>
+            <form action="POST" (ngSubmit)=login()>
+                <div class="inputs">
+                    <span>Usuario</span> <br/>
+                    <input 
+                        type="text" 
+                        placeholder="Ingrese su usuario, por favor"
+                        name="usuario"
+                        [(ngModel)]="usuario"
+                        required='required'
+                    ><br/>
+                </div>
+                <div class="inputs">
+                    <span>Contraseña</span><br/>
+                    <input 
+                        type="password" 
+                        placeholder="Ingrese su contraseña, por favor"
+                        name="password"
+                        [(ngModel)]="password"
+                        required='required'
+                    ><br/>
+                </div>
+                <button class="ingresar" type="submit">Ingresar</button><br/>
+                <button class="olvidar">¿Olvidaste tu contraseña?</button><br/>
+            </form>
+        </div>
+    </div>
+    <div class="columna-imagen">
+        <img src="./../../../../assets/img/chica_blog.svg" alt="chica_blog">
+    </div>
+</div>

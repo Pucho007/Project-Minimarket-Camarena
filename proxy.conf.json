@@ -1,0 +1,8 @@
+{
+    "/oauth/*":{
+        "target": "https://sistemagestionventas.herokuapp.com/",
+        "secure": false,
+        "logLevel": "debug"
+
+    }
+}

@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: 'Poppins', sans-serif;
+} 
+
+body{
+    overflow:hidden ;
+
+}
+
+.sidebar{
+    position: absolute;
+    height: 100vh;
+    width: 350px;
+    background-color: #e83444;
+
+}
+
+
+.añadir{
+    margin-left: 350px;
+}
+

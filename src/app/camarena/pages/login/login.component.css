@@ -1,0 +1,106 @@
+.body-login{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    position: relative;
+}
+
+.columna-data{
+    position: relative;
+}
+
+.columna-data-2{
+    position: absolute;
+    height: 80vh;
+   width: 80%;
+   top:10vh;
+   margin: 0 100px;
+   border-radius:10px;
+   box-shadow: #dbdbdb 5px 5px;
+   padding: 50px 30px;
+}
+
+.columna-data img{
+    width: 40%;
+    padding: 10px 0;
+}
+
+.columna-data h1{
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 60px;
+    padding-bottom: 30px;
+}
+
+.columna-data .seleccionado{
+    background-color: #e6c149;
+    color: #fff;
+    padding:0 10px;
+}
+
+.columna-data form .inputs span{
+    font-size: 20px;
+    margin-left: 8px;
+}
+
+.columna-data form .inputs {
+    margin: 10px 0;
+}
+
+.columna-data form .inputs input{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.columna-data form .inputs input[type="text"]{
+    width: 95%;
+    font-size: 15px;
+    border-radius: 10px;
+    border: solid 1px #dbdbdb;
+    padding: 15px 10px;
+    box-shadow: #dbdbdb 1px 1px;
+}
+
+.columna-data form .inputs input[type="password"]{
+    width: 95%;
+    font-size: 15px;
+    border-radius: 10px;
+    border: solid 1px #dbdbdb;
+    padding: 15px 10px;
+    box-shadow: #dbdbdb 1px 1px;
+}
+
+.columna-data form button {
+    border-radius: 10px;
+    width: 95%;
+    height: auto;
+    color: #fff;
+    padding: 15px 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.ingresar{
+    background-color: #e43434;
+    border: solid 1px #e43434;
+}
+
+.olvidar{
+    background-color: #ebebeb;
+    border: solid 1px #ebebeb;
+    color: #777777 !important;
+}
+
+.columna-imagen{
+    width: 100%;
+    position: relative;
+}
+
+.columna-imagen img{
+    position: absolute;
+    height: 80vh;
+   width: 80%;
+   top:10vh;
+   margin: 0 100px;
+   padding: 50px 30px;
+}

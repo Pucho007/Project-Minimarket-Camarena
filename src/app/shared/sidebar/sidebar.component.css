@@ -1,0 +1,22 @@
+
+
+.sidebar-menu h1{
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    padding: 30px 10px;
+    font-weight: 700;
+}
+
+.sidebar-menu li{
+    padding: 15px 40px;
+    color: #fff;
+}
+
+.sidebar-menu li:hover{
+    padding: 15px 40px;
+    background-color: #9D222D;
+    cursor: pointer;
+    border-left: #fff 4px solid;
+    transition: background-color 0.3s;
+}
