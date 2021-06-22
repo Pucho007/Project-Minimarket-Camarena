@@ -16,19 +16,22 @@ export class LoginComponent {
   constructor(private authService:AuthService, public router: Router){}
 
   ngOnInit(): void {
-    
+    if(this.authService.token){
+      this.router.navigateByUrl("dashboard");
+    }
   }
    
   login(){
-    if(this.usuario==null||this.password==null){
-      Swal.fire('Error login', 'Usuario o contraseña vacias!', 'error');
-      return;
-    }
     let user:User=new User();
     user.username=this.usuario
     user.password=this.password
-    this.authService.login(user).subscribe(response =>{      
 
+    if(user.username==undefined||user.password==undefined){
+      Swal.fire('Error login', 'Usuario o contraseña vacias!', 'error');
+      return;
+    }
+
+    this.authService.login(user).subscribe(response =>{      
       this.authService.guardarToken(response.access_token);
       this.authService.guardarUsuario(response.access_token);
       this.router.navigate(['/dashboard']);

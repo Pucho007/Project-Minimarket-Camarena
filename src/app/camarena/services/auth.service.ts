@@ -14,8 +14,7 @@ export class AuthService {
   private urlEndPoint: string = 'https://sistemagestionventas.herokuapp.com';
   private _usuario: User;
   private _token: string;
-  private httpHeader = new HttpHeaders({'Content-type':'application/json'});
-  constructor(private http: HttpClient, private cookies: CookieService) {
+  constructor(private http: HttpClient) {
   }
 
   login(user: User): Observable<any> {
@@ -34,11 +33,8 @@ export class AuthService {
     params.set('username', user.username);
     params.set('password', user.password);
     return this.http.post<any>(urlEndpoint, params.toString(), { headers: httpHeaders });
-
-    //return this.http.post('https://reqres.in/api/login', user);
   }
 
-  
 
   public get usuario(): User{
     if(this._usuario != null){
