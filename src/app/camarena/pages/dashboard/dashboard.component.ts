@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
   constructor(private authService:AuthService, public router: Router) { }
 
   ngOnInit(): void {
-    if(!this.authService.getToken()){
+    if(!this.authService.token){
       this.router.navigateByUrl("")
     }
   }

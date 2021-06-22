@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../interfaces/user.interface';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -15,24 +16,28 @@ export class LoginComponent {
   constructor(private authService:AuthService, public router: Router){}
 
   ngOnInit(): void {
-    if(this.authService.getToken()){
-      this.router.navigateByUrl("dashboard")
-    }
+    
   }
    
   login(){
-    const user:User={
-      username:this.usuario,
-      password:this.password,
+    if(this.usuario==null||this.password==null){
+      Swal.fire('Error login', 'Usuario o contraseña vacias!', 'error');
+      return;
     }
+    let user:User=new User();
+    user.username=this.usuario
+    user.password=this.password
+    this.authService.login(user).subscribe(response =>{      
 
-    this.authService.login(user).subscribe(data=>{
-      this.authService.setToken(data.token);
-      this.router.navigateByUrl("dashboard");
-    }, error=>{
-      console.log(error);
-      console.log("no entrar");
-    })
+      this.authService.guardarToken(response.access_token);
+      this.authService.guardarUsuario(response.access_token);
+      this.router.navigate(['/dashboard']);
+    }, err => {
+      if(err.status == 400 || err.status == 401 ||err.status == 500){
+        Swal.fire('Error Login', `${err.error.error_description}`, 'error')
+      }
+    }
+    );
   }
 
 

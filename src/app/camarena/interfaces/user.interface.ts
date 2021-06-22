@@ -1,5 +1,7 @@
+import { Roles } from "./roles";
 
-export interface User{
+export class User{
     username:string;
     password:string;
+    roles:Roles[];
 }
