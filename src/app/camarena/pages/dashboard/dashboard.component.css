@@ -8,6 +8,7 @@
 
 .nav-menu{
     padding: 24.5px 30px;
+    background-color: #e83444;
 }
 .nav-menu i{
     font-size: 35px;
@@ -30,3 +31,24 @@
     height: 100vh;
     background-color: rgb(233, 233, 233);
 }
+
+.scroll-container-a {
+    display: block;
+    width: 100%;
+    height: 82%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+
+  .scroll-container {
+    display: block;
+    width: calc((100% - 350px));
+    height: 82%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+  .scroll-container-header {
+    width: calc((100% - 350px));
+  }
+
+ 

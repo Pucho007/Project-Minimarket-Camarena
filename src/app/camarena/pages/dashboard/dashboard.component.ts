@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 export class DashboardComponent implements OnInit {
 
   constructor(private authService:AuthService, public router: Router) { }
-
+  cerrado:boolean=false
   ngOnInit(): void {
     if(!this.authService.token){
       this.router.navigateByUrl("")
@@ -25,7 +25,11 @@ export class DashboardComponent implements OnInit {
   toggle(){
     const dashboard=document.querySelector('.dashboard');
     dashboard.classList.toggle('añadir');
-    console.log(dashboard)
+    if(!this.cerrado){
+      this.cerrado=true
+    }else{
+      this.cerrado=false
+    }
   }
 
 }
