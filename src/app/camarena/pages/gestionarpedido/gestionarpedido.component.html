@@ -1,1 +1,164 @@
-<p>gestionarpedido works!</p>
+
+<div class="d-flex justify-content-center text-center" style="padding-top:26px">
+  <h3><strong>Gestionar Pedido</strong></h3>
+</div>
+<br>
+
+<div class="col-md-10" style="margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto">
+  <div class="row" >
+    <div class="col-md-6">
+        <div class="form-row ">
+            <div class="col-md-4">
+                <p><strong>NRO CUENTA:</strong></p>
+            </div>
+            <div class="col-md-8">
+                <p>************1</p>
+            </div>
+        </div>
+        <div class="form-row ">
+            <div class="col-md-4">
+                <p><strong>SALDO DISPONIBLE:</strong></p>
+            </div>
+            <div class="col-md-8">
+                <p>s/. 250</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-row ">
+            <div class="col-md-4">
+                <p><strong>NRO VENTA:</strong></p>
+            </div>
+            <div class="col-md-8">
+                <p>0001</p>
+            </div>
+        </div>
+        <div class="form-row ">
+            <div class="col-md-4">
+                <p><strong>FECHA</strong></p>
+            </div>
+            <div class="col-md-8">
+                <p>17/02/2014</p>
+            </div>
+        </div>
+    </div>
+  </div>
+
+<!-- //Buscador de producto -->
+  <div class="container mt-2 ">
+    <div class="row  justify-content-center ">
+
+      <div class="col-8 col-md-10">
+        <input type="text" class="form-control" name="filterproductos" placeholder="Buscar Producto..."[(ngModel)]="filterproductos">
+      </div>
+    </div>
+  </div>
+<!-- //mostrar los productos-->
+
+  <div class="container mt-4">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Costo S/.</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of productos |filterproducto:filterproductos | paginate: { itemsPerPage: 1, currentPage: p }">
+            <!--<th scope="row"></th>-->
+            <td>{{data.producto_id}}</td>
+            <td>{{data.nombre}}</td>
+            <td>{{data.descripcion}}</td>
+            <td>{{data.precio}}</td>
+            <td>{{data.stock}}</td>
+            <td>
+              <button (click)="AgregarProducto(data)" class="btn-shadow btn-hover-shine btn btn-success btn-md btn-pill "  >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
+                </svg>
+                AGREGAR
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+<!-- //mostrar los productos EN EL CARRITO-->
+  <div class="d-flex justify-content-center text-center" style="padding-top:26px">
+    <h2><strong>Carrito</strong></h2>
+  </div>
+  <br>
+
+  <div class="container mt-4">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Costo S/.</th>
+            <th scope="col"></th>
+            <th scope="col">Cantidad</th>
+            <th scope="col"></th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of Carrito; let index=index">
+            <!--<th scope="row"></th>-->
+            <td>{{data.producto_id}}</td>
+            <td>{{data.nombre}}</td>
+            <td>{{data.descripcion}}</td>
+            <td>{{data.precio}}</td>
+            <td>
+              <div class="col-6 col-md-3">
+                <button (click)="DismininuirProducto(index)" type="button" class="btn btn-outline-info" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-dash-fill" viewBox="0 0 16 16">
+                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.5 7h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1 0-1z"/>
+                  </svg>
+              </button>
+              </div>
+            </td>
+            <td class="row justify-content-center">{{data.stock}}</td>
+            <td >
+                <button (click)="AumentarProducto(data,index)" type="button" class="btn btn-outline-info" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
+                  </svg>
+                </button>
+            </td>
+            <td>
+              <button (click)="EliminarProducto(index)" class="btn-shadow btn-hover-shine btn btn-warning btn-md btn-pill "  >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-x-fill" viewBox="0 0 16 16">
+                  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7.354 5.646 8.5 6.793l1.146-1.147a.5.5 0 0 1 .708.708L9.207 7.5l1.147 1.146a.5.5 0 0 1-.708.708L8.5 8.207 7.354 9.354a.5.5 0 1 1-.708-.708L7.793 7.5 6.646 6.354a.5.5 0 1 1 .708-.708z"/>
+                </svg>
+                ELIMINAR
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <div class="d-flex flex-row justify-content-center mt-2">
+    <div class="col-6 col-md-3">
+      <button type="submit" class="btn btn-primary btn-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+          <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+        </svg>
+        PAGAR</button>
+    </div>
+  </div>
+
+</div>

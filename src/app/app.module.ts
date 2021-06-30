@@ -14,9 +14,13 @@ import { GestionarpedidoComponent } from './camarena/pages/gestionarpedido/gesti
 import { GestionarpromocionesComponent } from './camarena/pages/gestionarpromociones/gestionarpromociones.component';
 import { ConsultarpromocionesComponent } from './camarena/pages/consultarpromociones/consultarpromociones.component';
 import { ConsultarstockComponent } from './camarena/pages/consultarstock/consultarstock.component';
+import { FilterproductoPipe } from './pipes/filterproducto.pipe';
+
+//
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
-  declarations: [AppComponent,ConsultarstockComponent, MantenerproductoComponent, MantenerusuarioComponent, GestionarpedidoComponent, GestionarpromocionesComponent, ConsultarpromocionesComponent],
+  declarations: [AppComponent,ConsultarstockComponent, MantenerproductoComponent, MantenerusuarioComponent, GestionarpedidoComponent, GestionarpromocionesComponent, ConsultarpromocionesComponent, FilterproductoPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,6 +28,7 @@ import { ConsultarstockComponent } from './camarena/pages/consultarstock/consult
     HttpClientModule,
     FormsModule,
     NgbModule,
+    NgxPaginationModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

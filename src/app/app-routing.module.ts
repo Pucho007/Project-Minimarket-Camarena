@@ -9,6 +9,7 @@ import { GestionarpromocionesComponent } from './camarena/pages/gestionarpromoci
 import { ConsultarpromocionesComponent } from './camarena/pages/consultarpromociones/consultarpromociones.component';
 import { ConsultarstockComponent } from './camarena/pages/consultarstock/consultarstock.component';
 
+
 const routes: Routes = [
   {
     path: '',
