@@ -1,1 +1,174 @@
-<p>gestionarpromociones works!</p>
+<div class="d-flex justify-content-center text-center" style="padding-top:60px">
+    <h2><strong>Gestionar Promoción</strong></h2>
+  </div>
+
+  <div class="col-md-12" style="margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto">
+    <div class="container">
+      <div class="row py-4">
+        
+        
+
+        <div class="col-12 mt-5">
+            <form action="" enctype="multipart/form-data">
+                <div class="col-md-12" style="margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto">
+                  <div class="container">
+                    <div class="row py-2">
+                      <!--<div class="col-md-1"></div>-->
+                      <div class="col-md-5">
+                        <div class="form-row py-2">
+                          <div class="col-md-4">
+                            <p><strong>CÓDIGO:</strong></p>
+                          </div>
+                          <div class="col-md-8">
+                            <input type="text" class="form-control" placeholder="" required>
+                          </div>
+                        </div>
+            
+                        <div class="form-row py-2">
+                          <div class="col-md-4">
+                            <p><strong>NOMBRE:</strong></p>
+                          </div>
+                          <div class="col-md-8">
+                            <input type="text" class="form-control" placeholder="" required>
+                          </div>
+                        </div>
+            
+                        <div class="form-row py-2">
+                          <div class="col-md-4">
+                            <p><strong>COSTO:</strong></p>
+                          </div>
+                          <div class="col-md-8">
+                            <input type="text" class="form-control" placeholder="" required>
+                          </div>
+                        </div>
+            
+                       
+                      </div>
+            
+                      <div class="col-md-5">
+                        <div class="form-row py-2">
+                          <div class="col-md-4">
+                            <p><strong>DESCRIPCIÓN:</strong></p>
+                          </div>
+                          <div class="col-md-8">
+                            <input type="text" class="form-control" placeholder="" required>
+                          </div>
+                        </div>
+                        <div class="form-row py-2">
+                          <div class="col-md-4">
+                            <p><strong>CANTIDAD:</strong></p>
+                          </div>
+                          <div class="col-md-8">
+                            <input type="text" class="form-control" placeholder="" required>
+                          </div>
+                        </div>
+                        <div class="form-row py-2">
+                          <div class="col-md-4">
+                            <p><strong>COD. PRODUCTO:</strong></p>
+                          </div>
+                          <div class="col-md-8">
+                            <input type="text" class="form-control" placeholder="" required>
+                          </div>
+                        </div>
+            
+                        
+                      </div>
+                    </div>
+                  </div> <br>
+                  <div class="d-flex flex-row justify-content-center mt-2">
+                    <div class="col-6 col-md-3">
+                      <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-plus-circle"></i>REGISTRAR</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+        </div>
+
+
+        <div class="container mt-5 ">
+            <div class="row  justify-content-center ">
+        
+              <div class="col-8 col-md-10">
+                <input type="text" class="form-control" placeholder="Código">
+              </div>
+              
+              <div class="col-4 col-md-2 ">
+                <button type="button" class="btn btn-primary btn-dark btn-block"><i class="fas fa-search"></i>&nbsp;Buscar</button>
+              </div>
+        
+            </div>
+          </div>
+
+
+
+    <div class="container mt-4">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Cod. Producto</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Actividad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <!--<th scope="row"></th>-->
+              <td>P012</td>
+              <td>0120</td>
+              <td>Aceite Primor</td>
+              <td>Aceite vegetal marca Primero Botella de 1 L</td>
+              <td>15.00</td>
+              <td>01</td>
+              
+              
+              <td>
+                <div role="group" class="mb-2 btn-group-md btn-group">
+                  <button class="btn-shadow btn-hover-shine btn btn-success btn-md btn-pill pl-3" title="Editar">
+                    <i class="fa fa-edit" aria-hidden="true"></i>
+                  </button>
+                  <button class="btn-shadow btn-hover-shine btn btn-danger btn-md btn-pill pr-3" title="Eliminar">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+                <!--<th scope="row"></th>-->
+                <td>0130</td>
+                <td>Leche Gloria</td>
+                <td>Tarro de Leche Gloria Clásico</td>
+                <td>3.50</td>
+                <td>02</td>
+                <td>7.00</td>
+                
+                <td>
+                  <div role="group" class="mb-2 btn-group-md btn-group">
+                    <button class="btn-shadow btn-hover-shine btn btn-success btn-md btn-pill pl-3" title="Editar">
+                      <i class="fa fa-edit" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn-shadow btn-hover-shine btn btn-danger btn-md btn-pill pr-3" title="Eliminar">
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+          </tbody>
+
+        </table>
+
+        <div class="d-flex flex-row justify-content-center mt-2">
+            <div class="col-6 col-md-3">
+              <button type="submit" class="btn btn-primary btn-dark btn-block"><i class="fas fa-check-circle"></i>&nbsp;Guardar</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-danger btn-block"><i class="fas fa-window-close"></i>&nbsp;Cancelar</button>
+            </div>
+        </div>
+      </div>
+    </div>
