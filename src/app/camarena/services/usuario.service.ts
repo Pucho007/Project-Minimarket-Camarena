@@ -2,8 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
-import Swal from 'sweetalert2';
-import { usuario } from '../interfaces/usuario';
+import { Usuario } from '../interfaces/usuario';
 import { AuthService } from './auth.service';
 import { catchError } from 'rxjs/operators';
 
@@ -15,30 +14,10 @@ export class UsuarioService {
   private httpHeader = new HttpHeaders({ 'Content-type': 'application/json' });
   constructor(
     private http: HttpClient,
-    private auth: AuthService,
-    private router: Router
+    private auth: AuthService
   ) {}
 
-  private isNoAutorizado(e): boolean {
-    if (e.status == 401) {
-      if (this.auth.isAuthenticated()) {
-        this.auth.logout();
-      }
-      this.router.navigate(['/menuAll']);
-      return true;
-    }
-    if (e.status == 403) {
-      Swal.fire(
-        'Acceso denegado',
-        'No esta autorizado a este recurso',
-        'warning'
-      );
-      this.router.navigate(['/menuAll']);
-      return true;
-    }
-    return false;
-  }
-
+  
   public agregarAutorizacion() {
     let tok = this.auth.token;
     if (tok != null) {
@@ -47,16 +26,58 @@ export class UsuarioService {
     return this.httpHeader;
   }
 
-  listarusuario(): Observable<usuario[]> {
+  listarusuario(): Observable<Usuario[]> {
     return this.http
-      .get<usuario[]>(`${this.urlEndPoint}/sgv/listar_usuarios`, {
+      .get<Usuario[]>(`${this.urlEndPoint}/sgv/listar_usuarios`, {
         headers: this.agregarAutorizacion(),
       })
       .pipe(
         catchError((e) => {
-          this.isNoAutorizado(e);
+          this.auth.isNoAutorizado(e);
           return throwError(e);
         })
       );
+  }
+
+  buscar(username): Observable<Usuario[]> {
+    return this.http
+      .get<Usuario[]>(`${this.urlEndPoint}/sgv/buscarUsuarioPorId?username=${username}`, {
+        headers: this.agregarAutorizacion(),
+      })
+      .pipe(
+        catchError((e) => {
+          this.auth.isNoAutorizado(e);
+          return throwError(e);
+        })
+      );
+  }
+  save(usuario): Observable<Usuario>{
+    
+    return this.http.post<Usuario>(this.urlEndPoint+'/sgv/insertarusuario',usuario,{headers:this.agregarAutorizacion()}).pipe(
+      catchError(e=>{
+        this.auth.isNoAutorizado(e);
+        return throwError(e);
+      })
+    )
+  }
+
+  actualizar(usuario): Observable<Usuario>{
+    
+    return this.http.post<Usuario>(this.urlEndPoint+'/sgv/actualizarUsuario',usuario,{headers:this.agregarAutorizacion()}).pipe(
+      catchError(e=>{
+        this.auth.isNoAutorizado(e);
+        return throwError(e);
+      })
+    )
+  }
+
+  eliminar(usuario): Observable<Usuario>{
+    
+    return this.http.post<Usuario>(this.urlEndPoint+'/sgv/eliminarUsuario?username='+usuario,null,{headers:this.agregarAutorizacion()}).pipe(
+      catchError(e=>{
+        this.auth.isNoAutorizado(e);
+        return throwError(e);
+      })
+    )
   }
 }

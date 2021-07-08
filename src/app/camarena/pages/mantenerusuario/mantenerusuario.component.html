@@ -1,151 +1,139 @@
 <div class="d-flex justify-content-center text-center" style="padding-top:60px">
-    <h2><strong>Mantener datos de los usuarios</strong></h2>
-  </div> <br>
-<form action="" enctype="multipart/form-data">
-    <div class="col-md-12" style="margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto">
-      <div class="container">
-        <div class="row py-2">
-          <!--<div class="col-md-1"></div>-->
-          <div class="col-md-5">
-            <div class="form-row py-2">
-              <div class="col-md-4">
-                <p><strong>NOMBRE:</strong></p>
-              </div>
-              <div class="col-md-8">
-                <input type="text" class="form-control" placeholder="Ingrese el nombre..." required>
-              </div>
+  <h2><strong>Mantener datos de los usuarios</strong></h2>
+</div> <br>
+  <div class="col-md-12" style="margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto">
+    <div class="container">
+      <div class="row py-2">
+        <div class="col-md-5">
+          <div class="form-row py-2">
+            <div class="col-md-4">
+              <p><strong>NOMBRE:</strong></p>
             </div>
-
-            <div class="form-row py-2">
-              <div class="col-md-4">
-                <p><strong>DNI:</strong></p>
-              </div>
-              <div class="col-md-8">
-                <input type="text" class="form-control" placeholder="Ingrese el DNI..." required>
-              </div>
-            </div>
-
-            <div class="form-row py-2">
-              <div class="col-md-4">
-                <p><strong>TELEFONO:</strong></p>
-              </div>
-              <div class="col-md-8">
-                <input type="text" class="form-control" placeholder="Ingrese el telefono..." required>
-              </div>
-            </div>
-
-            <div class="form-row py-2">
-              <div class="col-md-4">
-                <p><strong>E-MAIL:</strong></p>
-              </div>
-              <div class="col-md-8">
-                <input type="email" class="form-control" placeholder="ejemplo@dominio.com" required>
-              </div>
+            <div class="col-md-8">
+              <input type="text" [(ngModel)]="Usuario.nombre" class="form-control" placeholder="Ingrese el nombre..." required>
             </div>
           </div>
 
-          <div class="col-md-5">
-            <div class="form-row py-2">
-              <div class="col-md-4">
-                <p><strong>SUELDO:</strong></p>
-              </div>
-              <div class="col-md-8">
-                <input type="text" class="form-control" placeholder="Ingrese el sueldo..." required>
-              </div>
+          <div class="form-row py-2">
+            <div class="col-md-4">
+              <p><strong>DNI:</strong></p>
             </div>
-            <div class="form-row py-2">
-              <div class="col-md-4">
-                <p><strong>DIRECCION:</strong></p>
-              </div>
-              <div class="col-md-8">
-                <input type="text" class="form-control" placeholder="Ingrese la direccion..." required>
-              </div>
+            <div class="col-md-8">
+              <input type="text" class="form-control" [(ngModel)]="Usuario.dni" maxlength="8" placeholder="Ingrese el DNI..." required>
             </div>
-            <div class="form-row py-2">
-              <div class="col-md-4">
-                <p><strong>ID:</strong></p>
-              </div>
-              <div class="col-md-8">
-                <input type="text" class="form-control" placeholder="Ingrese el ID..." required>
-              </div>
-            </div>
+          </div>
 
-            <div class="form-row py-2">
-              <div class="col-md-4">
-                <p><strong>CONTRASEÑA:</strong></p>
-              </div>
-              <div class="col-md-8">
-                <input type="password" class="form-control" id="exampleInputPassword1"
-                  placeholder="Ingrese la contraseña..." required>
-              </div>
+          <div class="form-row py-2">
+            <div class="col-md-4">
+              <p><strong>TELEFONO:</strong></p>
+            </div>
+            <div class="col-md-8">
+              <input type="text" [(ngModel)]="Usuario.telefono" class="form-control" maxlength="9" placeholder="Ingrese el telefono..." required>
+            </div>
+          </div>
+
+          <div class="form-row py-2">
+            <div class="col-md-4">
+              <p><strong>E-MAIL:</strong></p>
+            </div>
+            <div class="col-md-8">
+              <input type="email" [(ngModel)]="Usuario.email" class="form-control" placeholder="ejemplo@dominio.com" required>
             </div>
           </div>
         </div>
-      </div> <br>
-      <div class="d-flex flex-row justify-content-center mt-2">
-        <div class="col-6 col-md-3">
-          <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-plus-circle"></i>REGISTRAR</button>
+
+        <div class="col-md-5">
+          <div class="form-row py-2">
+            <div class="col-md-4">
+              <p><strong>APELLIDO:</strong></p>
+            </div>
+            <div class="col-md-8">
+              <input type="text" [(ngModel)]="Usuario.apellido" class="form-control" placeholder="Ingrese el apellido..." required>
+            </div>
+          </div>
+          <div class="form-row py-2">
+            <div class="col-md-4">
+              <p><strong>DIRECCION:</strong></p>
+            </div>
+            <div class="col-md-8">
+              <input type="text" [(ngModel)]="Usuario.direccion" class="form-control" placeholder="Ingrese la direccion..." required>
+            </div>
+          </div>
+          <div class="form-row py-2">
+            <div class="col-md-4">
+              <p><strong>CONTRASEÑA:</strong></p>
+            </div>
+            <div class="col-md-8">
+              <input type="password" [(ngModel)]="Usuario.password" class="form-control" placeholder="Ingrese el rol del usuario..." required>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </form>
-  <br> <br>
-  <div class="container mt-2 ">
-    <div class="row  justify-content-center ">
-
-      <div class="col-8 col-md-10">
-        <input type="text" class="form-control" placeholder="Buscar Usuario...">
+    </div> <br>
+    <div class="d-flex flex-row justify-content-center mt-2">
+      <div class="col-6 col-md-3">
+        <button type="submit" class="btn btn-primary btn-block" (click)="agregarUsuario()"><em class="fas fa-plus-circle"></em>REGISTRAR</button>
       </div>
-      <div class="col-4 col-md-2 ">
-        <button type="button" class="btn btn-primary btn-dark btn-block"><i class="fas fa-search"></i></button>
-      </div>
-
     </div>
   </div>
+<br> <br>
+<div class="container mt-2 ">
+  <div class="row  justify-content-center ">
 
-
-
-    <div class="container mt-4">
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Nombre</th>
-              <th scope="col">DNI</th>
-              <th scope="col">Telefono</th>
-              <th scope="col">E-mail</th>
-              <th scope="col">Sueldo</th>
-              <th scope="col">Direccion</th>
-              <th scope="col">ID</th>
-              <th scope="col">Contraseña</th>
-              <th scope="col">Actividad</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <!--<th scope="row"></th>-->
-              <td>Maria</td>
-              <td>70568323</td>
-              <td>953108837</td>
-              <td>Maria01@gmail</td>
-              <td>3000</td>
-              <td>Los Olivos</td>
-              <td>Maria.villanueva</td>
-              <td>******</td>
-              <td>
-                <div role="group" class="mb-2 btn-group-md btn-group">
-                  <button class="btn-shadow btn-hover-shine btn btn-success btn-md btn-pill pl-3" title="Editar">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                  </button>
-                  <button class="btn-shadow btn-hover-shine btn btn-danger btn-md btn-pill pr-3" title="Eliminar">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-
-          </tbody>
-
-        </table>
-      </div>
+    <div class="col-8 col-md-10">
+      <input type="text" class="form-control" [(ngModel)]="username" placeholder="Buscar Usuario...">
     </div>
+    <div class="col-4 col-md-2 ">
+      <button type="button" (click)="buscar()" class="btn btn-primary btn-dark btn-block"><em class="fas fa-search"></em></button>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="container mt-4">
+  <div class="table-responsive">
+    <table class="table table-striped" aria-describedby="mantener usuario">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">DNI</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">ID</th>
+          <th scope="col">Rol</th>
+          <th scope="col">Actividad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of usuarios">
+          <td>{{data.nombre}}</td>
+          <td>{{data.apellido}}</td>
+          <td>{{data.dni}}</td>
+          <td>{{data.telefono}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.direccion}}</td>
+          <td>{{data.username}}</td>
+          <td>{{data.roles}}</td>
+
+          <td>
+
+            <div role="group" class="mb-2 btn-group-md btn-group">
+              <button class="btn-shadow btn-hover-shine btn btn-success btn-md btn-pill pl-4" (click)="actualizar(data)" title="Editar">
+                <em class="fa fa-pencil" aria-hidden="true"></em>
+              </button>
+              <button class="btn-shadow btn-hover-shine btn btn-danger btn-md btn-pill pr-3" (click)=eliminar(data) title="Eliminar">
+                <em class="fa fa-trash" aria-hidden="true"></em>
+              </button>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+  </div>
+</div>

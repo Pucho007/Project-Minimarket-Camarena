@@ -8,6 +8,7 @@ import { GestionarpedidoComponent } from './camarena/pages/gestionarpedido/gesti
 import { GestionarpromocionesComponent } from './camarena/pages/gestionarpromociones/gestionarpromociones.component';
 import { ConsultarpromocionesComponent } from './camarena/pages/consultarpromociones/consultarpromociones.component';
 import { ConsultarstockComponent } from './camarena/pages/consultarstock/consultarstock.component';
+import { MantenerclienteComponent } from './camarena/pages/mantenercliente/mantenercliente.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
       { path: 'gestionarpedido',component: GestionarpedidoComponent,outlet: 'sidebar'},
       { path: 'gestionarpromociones',component: GestionarpromocionesComponent,outlet: 'sidebar'},
       { path: 'consultarpromociones',component: ConsultarpromocionesComponent,outlet: 'sidebar'},
-      { path: 'consultarstock',component: ConsultarstockComponent,outlet: 'sidebar'}
+      { path: 'consultarstock',component: ConsultarstockComponent,outlet: 'sidebar'},
+      { path: 'mantenercliente',component: MantenerclienteComponent,outlet: 'sidebar'}
   ]},
   {
     path: '**',

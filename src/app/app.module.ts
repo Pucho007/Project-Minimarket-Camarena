@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,9 +18,10 @@ import { FilterproductoPipe } from './pipes/filterproducto.pipe';
 
 //
 import {NgxPaginationModule} from 'ngx-pagination';
+import { MantenerclienteComponent } from './camarena/pages/mantenercliente/mantenercliente.component';
 
 @NgModule({
-  declarations: [AppComponent,ConsultarstockComponent, MantenerproductoComponent, MantenerusuarioComponent, GestionarpedidoComponent, GestionarpromocionesComponent, ConsultarpromocionesComponent, FilterproductoPipe],
+  declarations: [AppComponent,ConsultarstockComponent, MantenerproductoComponent, MantenerusuarioComponent, GestionarpedidoComponent, GestionarpromocionesComponent, ConsultarpromocionesComponent, FilterproductoPipe, MantenerclienteComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

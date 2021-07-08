@@ -3,7 +3,8 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders} from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user.interface';
-import { CookieService } from "ngx-cookie-service";
+import Swal from "sweetalert2";
+import { Router } from "@angular/router";
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class AuthService {
   private urlEndPoint: string = 'https://sistemagestionventas.herokuapp.com';
   private _usuario: User;
   private _token: string;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private router: Router) {
   }
 
   login(user: User): Observable<any> {
@@ -93,6 +94,25 @@ export class AuthService {
     sessionStorage.clear();
   }
 
+  isNoAutorizado(e): boolean {
+    if (e.status == 401) {
+      if (this.isAuthenticated()) {
+        this.logout();
+      }
+      this.router.navigate(['/menuAll']);
+      return true;
+    }
+    if (e.status == 403) {
+      Swal.fire(
+        'Acceso denegado',
+        'No esta autorizado a este recurso',
+        'warning'
+      );
+      this.router.navigate(['/menuAll']);
+      return true;
+    }
+    return false;
+  }
 
 
 }

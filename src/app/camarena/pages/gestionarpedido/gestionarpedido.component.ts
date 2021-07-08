@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 //importacion de modelo y el srvicio
-import { producto } from '../../interfaces/producto';
+import { Producto } from '../../interfaces/producto';
 import { ProductoService } from '../../services/producto.service';
 
 @Component({
@@ -10,10 +10,10 @@ import { ProductoService } from '../../services/producto.service';
   styleUrls: ['./gestionarpedido.component.css']
 })
 export class GestionarpedidoComponent implements OnInit {
-  public productos: Array<producto>=[];
+  public productos: Array<Producto>=[];
   filterproductos='';
   p: number = 1;
-  public Carrito: Array<producto>=[];
+  public Carrito: Array<Producto>=[];
 
   constructor(private productoservice:ProductoService) { }
   ngOnInit(): void {
@@ -21,8 +21,8 @@ export class GestionarpedidoComponent implements OnInit {
       this.productos=p;
     });
   }
-  AgregarProducto(data:producto){
-    var agregado= new Boolean();
+  AgregarProducto(data:Producto){
+    let agregado:boolean;
     agregado=false;
     for (let elemento of this.Carrito) {
       if(elemento.producto_id==data.producto_id){
@@ -32,7 +32,7 @@ export class GestionarpedidoComponent implements OnInit {
         agregado=true;
       }
     }
-    if(agregado==false){
+    if(agregado===false){
       let d = Object.assign({} , data)
       d.stock=1;
       this.Carrito.push(d);
@@ -50,7 +50,7 @@ export class GestionarpedidoComponent implements OnInit {
     }
   }
 
-  AumentarProducto(data:producto,index){
+  AumentarProducto(data:Producto,index){
     var n=this.buscarProducto(data);
     if(n>-1){
       if(this.Carrito[index].stock<this.productos[n].stock){
@@ -58,7 +58,7 @@ export class GestionarpedidoComponent implements OnInit {
       }
     }
   }
-  buscarProducto(data:producto){
+  buscarProducto(data:Producto){
     var i=-1;
     for (let elemento of this.productos) {
       i=i+1;

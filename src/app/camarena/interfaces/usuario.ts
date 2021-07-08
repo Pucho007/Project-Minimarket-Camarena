@@ -1,12 +1,13 @@
-export class usuario {
-  username: string;
-  nombre: string;
-  apellido: string;
-  dni: string;
-  telefono: string;
-  direccion: string;
-  email: string;
-  roles: string;
-  created_at: string;
-  updated_at: string;
+export class Usuario {
+  username: string=null;
+  nombre: string=null;
+  apellido: string=null;
+  dni: string=null;
+  telefono: string=null;
+  direccion: string=null;
+  email: string=null;
+  roles: string=null;
+  password:string=null;
+  created_at: string=null;
+  updated_at: string=null;
 }

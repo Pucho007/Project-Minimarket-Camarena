@@ -1,9 +1,9 @@
-export class producto {
-  producto_id: number;
-  nombre: string;
-  descripcion: string;
-  stock: number;
-  precio: number;
+export class Producto {
+  producto_id: number=null;
+  nombre: string=null;
+  descripcion: string=null;
+  stock: number=null;
+  precio: number=null;
   created_at: string;
   updated_at: string;
 }
