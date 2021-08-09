@@ -5,12 +5,13 @@ import { Observable, throwError } from 'rxjs';
 import { Usuario } from '../interfaces/usuario';
 import { AuthService } from './auth.service';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsuarioService {
-  private urlEndPoint: string = 'https://sistemagestionventas.herokuapp.com';
+  private urlEndPoint: string = environment.url;
   private httpHeader = new HttpHeaders({ 'Content-type': 'application/json' });
   constructor(
     private http: HttpClient,

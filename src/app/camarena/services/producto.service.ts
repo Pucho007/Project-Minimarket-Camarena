@@ -4,12 +4,12 @@ import { Observable, throwError } from 'rxjs';
 import { Producto } from '../interfaces/producto';
 import { AuthService } from './auth.service';
 import { catchError } from 'rxjs/operators';
-
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class ProductoService {
-  private urlEndPoint: string = 'https://sistemagestionventas.herokuapp.com';
+  private urlEndPoint: string = environment.url;
   private httpHeader = new HttpHeaders({ 'Content-type': 'application/json' });
   constructor(
     private http: HttpClient,

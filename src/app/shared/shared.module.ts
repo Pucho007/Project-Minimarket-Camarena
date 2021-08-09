@@ -20,7 +20,8 @@ import { RouterModule } from '@angular/router';
   exports:[
     RouterModule,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

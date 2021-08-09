@@ -19,9 +19,11 @@ import { FilterproductoPipe } from './pipes/filterproducto.pipe';
 //
 import {NgxPaginationModule} from 'ngx-pagination';
 import { MantenerclienteComponent } from './camarena/pages/mantenercliente/mantenercliente.component';
+import { RecargaComponent } from './camarena/pages/recarga/recarga.component';
+
 
 @NgModule({
-  declarations: [AppComponent,ConsultarstockComponent, MantenerproductoComponent, MantenerusuarioComponent, GestionarpedidoComponent, GestionarpromocionesComponent, ConsultarpromocionesComponent, FilterproductoPipe, MantenerclienteComponent],
+  declarations: [AppComponent,ConsultarstockComponent, MantenerproductoComponent, MantenerusuarioComponent, GestionarpedidoComponent, GestionarpromocionesComponent, ConsultarpromocionesComponent, FilterproductoPipe, MantenerclienteComponent, RecargaComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

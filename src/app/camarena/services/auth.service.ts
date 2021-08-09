@@ -5,14 +5,14 @@ import { Observable } from 'rxjs';
 import { User } from '../interfaces/user.interface';
 import Swal from "sweetalert2";
 import { Router } from "@angular/router";
-
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
  
-  private urlEndPoint: string = 'https://sistemagestionventas.herokuapp.com';
+  private urlEndPoint: string = environment.url;
   private _usuario: User;
   private _token: string;
   constructor(private http: HttpClient,private router: Router) {
@@ -60,10 +60,11 @@ export class AuthService {
 
   guardarToken(accesstoken: string):void{
     let payload = this.obtenerDatosToken(accesstoken);
- console.log(payload)
     this._usuario = new User();
     this._usuario.username = payload.user_name;
     this._usuario.roles = payload.authorities;
+    this._usuario.nombre=payload.nombre
+    this._usuario.apellido=payload.apellido
     sessionStorage.setItem('usuario',JSON.stringify(this._usuario));
   }
 

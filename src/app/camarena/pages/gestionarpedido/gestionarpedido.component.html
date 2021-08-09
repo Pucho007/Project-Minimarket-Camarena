@@ -7,30 +7,42 @@
 <div class="col-md-10" style="margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto">
   <div class="row" >
     <div class="col-md-6">
+      <div class="form-row ">
+          <div class="col-md-4">
+              <p><strong>NOMBRE:</strong></p>
+          </div>
+          <div class="col-md-8">
+              <p>{{datos.nombre}} {{datos.apellido}}</p>
+          </div>
+      </div>
+  </div>
+    <div class="col-md-6">
         <div class="form-row ">
             <div class="col-md-4">
                 <p><strong>SALDO DISPONIBLE:</strong></p>
             </div>
             <div class="col-md-8">
-                <p>s/. 250</p>
+                <p>s/. {{tarjeta.saldo}}</p>
             </div>
         </div>
     </div>
     <div class="col-md-6">
-        <div class="form-row ">
-            <div class="col-md-4">
-                <p><strong>NRO VENTA:</strong></p>
-            </div>
-            <div class="col-md-8">
-                <p>0001</p>
-            </div>
-        </div>
+      <div class="form-row ">
+          <div class="col-md-4">
+              <p><strong>NÚMERO DE TARJETA</strong></p>
+          </div>
+          <div class="col-md-8">
+              <p>{{tarjeta.tarjeta_id}}</p>
+          </div>
+      </div>
+  </div>
+    <div class="col-md-6">
         <div class="form-row ">
             <div class="col-md-4">
                 <p><strong>FECHA</strong></p>
             </div>
             <div class="col-md-8">
-                <p>17/02/2014</p>
+                <p>{{fecha}}</p>
             </div>
         </div>
     </div>
@@ -112,7 +124,7 @@
             <td>{{data.precio}}</td>
             <td>
               <div class="col-6 col-md-3">
-                <button (click)="DismininuirProducto(index)" type="button" class="btn btn-outline-info" >
+                <button (click)="DismininuirProducto(index)" [disabled]="data.stock===1" type="button" class="btn btn-outline-info" >
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-dash-fill" viewBox="0 0 16 16">
                     <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.5 7h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1 0-1z"/>
                   </svg>
@@ -140,11 +152,16 @@
 
       </table>
     </div>
+    <div>TOTAL: {{total}}</div>
+    <div>SALDO: {{sald}}</div>
   </div>
+
+
+
 
   <div class="d-flex flex-row justify-content-center mt-2">
     <div class="col-6 col-md-3">
-      <button type="submit" class="btn btn-primary btn-block">
+     <button type="submit" (click)="pagarlo()" class="btn btn-primary btn-block" >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
           <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708z"/>
         </svg>
@@ -153,3 +170,75 @@
   </div>
 
 </div>
+
+<ng-template #pagar let-c="close" let-d="dismiss">
+  <div class="modal-header"  >
+    <h4 class="modal-title" id="modal-cerrar">Minimarket "Camarena"</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" >
+    <div class="form-group">
+      <div class="row" style="text-align: center;">
+        <div class="col-md-12" style="text-align: center;">
+          <label for=""> <strong>{{datos.nombre}} {{datos.apellido}}</strong></label>
+        </div>
+        <div class="col-md-12">
+          <div class="form-row ">
+            <div class="col-md-4 text-body-modal">
+              <p><strong>N° CUENTA:</strong></p>
+            </div>
+            <div class="col-md-8">
+              <p>{{tarjeta.tarjeta_id}}</p>
+            </div>
+          </div>
+          <div class="form-row ">
+            <div class="col-md-4 text-body-modal">
+              <p><strong>SALDO DISPONIBLE:</strong></p>
+            </div>
+            <div class="col-md-8">
+              <p>{{tarjeta.saldo}}</p>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="col-md-12">
+          <div class="form-row ">
+            <div class="col-md-4 text-body-modal">
+              <p><strong>FECHA:</strong></p>
+            </div>
+            <div class="col-md-8">
+              <p>{{fecha}}</p>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="col-md-12">
+          <div class="form-row ">
+            <div class="col-md-4 text-body-modal">
+              
+              <p><strong>TOTAL A PAGAR:</strong></p>
+            </div>
+            <div class="col-md-8">
+              <p>{{total}}</p>
+            </div>
+          </div>
+          <div class="form-row ">
+            <div class="col-md-4 text-body-modal">
+              <p><strong>TOTAL A PAGAR:</strong></p>
+            </div>
+            <div class="col-md-8">
+              <p>{{sald}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer" >
+    <button type="button" class="btn btn-primary" (click)="generarComprobante()" >Pagar</button>
+    <button type="button" class="btn btn-danger"  (click)="c('Save click')">Cancelar</button>
+  </div>
+</ng-template>
+
