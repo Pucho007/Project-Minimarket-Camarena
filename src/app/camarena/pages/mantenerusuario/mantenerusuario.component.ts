@@ -29,7 +29,7 @@ export class MantenerusuarioComponent implements OnInit {
     if(this.Usuario.apellido===null || this.Usuario.apellido===""){
       mensaje="El campo apellido esta vacío";
       est=true
-    } if(this.Usuario.nombre===null || this.Usuario.nombre===""){
+    } else if(this.Usuario.nombre===null || this.Usuario.nombre===""){
       mensaje="El campo nombre esta vacío";
       est=true
     }else if(this.Usuario.dni===null || this.Usuario.dni===""){
@@ -41,7 +41,7 @@ export class MantenerusuarioComponent implements OnInit {
     }else if( this.Usuario.email===null || this.Usuario.email===""){
       mensaje="El campo email esta vacío";
       est=true
-    } else if( /\S+@\S+\.\S+/.test(this.Usuario.email) == false){
+    } else if(!/\S+@\S+\.\S+/.test(this.Usuario.email)){
       mensaje="El campo correo debe tener un formato válido";
       est=true
     }else if(this.Usuario.direccion===null || this.Usuario.direccion===""){
@@ -117,7 +117,7 @@ export class MantenerusuarioComponent implements OnInit {
     
   }
 
-  actualizar(data){
+  actualizar(data){ console.log(data)
     
   }
 }

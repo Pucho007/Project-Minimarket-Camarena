@@ -5,10 +5,10 @@ import { Router } from '@angular/router';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  
 
   irmantener() {
     this.router.navigate([{ outlets: { sidebar: 'mantenerproducto' } }]);

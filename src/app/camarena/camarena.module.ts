@@ -6,9 +6,6 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { AuthService } from './services/auth.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { LoadingComponent } from '../shared/loading/loading.component';
-
-
 
 @NgModule({
   declarations: [
@@ -29,4 +26,6 @@ import { LoadingComponent } from '../shared/loading/loading.component';
     AuthService
   ]
 })
-export class CamarenaModule { }
+export class CamarenaModule {
+  
+ }

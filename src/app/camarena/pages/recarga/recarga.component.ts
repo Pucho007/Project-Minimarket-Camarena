@@ -10,14 +10,12 @@ import { RecargaService } from '../../services/recarga.service';
   templateUrl: './recarga.component.html',
   styleUrls: ['./recarga.component.css']
 })
-export class RecargaComponent implements OnInit {
+export class RecargaComponent {
 
   tarjeta:Tarjeta =new Tarjeta();
   constructor(private pedidoService:PedidoService,private auth:AuthService,private recargService:RecargaService) { }
 
-  ngOnInit(): void {
-    
-  }
+ 
 
   buscar(id){
     let mensaje=""
