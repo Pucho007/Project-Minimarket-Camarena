@@ -47,13 +47,13 @@
         <div class="row  justify-content-center ">
 
           <div class="col-4 col-md-5">
-            <input type="text" class="form-control" placeholder="Código">
+            <input type="text" class="form-control" [(ngModel)]="promocion.idPromocion" placeholder="Código">
           </div>
           <div class="col-4 col-md-5">
-            <input type="text" class="form-control" placeholder="Cantidad">
+            <input type="text" class="form-control" [(ngModel)]="promocion.cantidad" placeholder="Cantidad">
           </div>
           <div class="col-4 col-md-2 ">
-            <button type="button" class="btn btn-primary btn-dark btn-block"><em
+            <button type="button" (click)="buscarPromo()" class="btn btn-primary btn-dark btn-block"><em
                 class="fas fa-plus-circle"></em>&nbsp;Añadir</button>
           </div>
 
@@ -77,13 +77,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>0120</td>
-                <td>Aceite Primor</td>
-                <td>Aceite vegetal marca Primero Botella de 1 L</td>
-                <td>15.00</td>
-                <td>01</td>
-                <td>15.00</td>
+              <tr *ngFor="let data of promociones">
+                <td>{{data.idPromocion}}</td>
+                <td>{{data.nombre}}</td>
+                <td>{{data.descripcion}}</td>
+                <td>{{data.costo}}</td>
+                <td>{{data.cantidad}}</td>
+                <td>{{data.costo*data.cantidad}}</td>
 
                 <td>
                   <div role="group" class="mb-2 btn-group-md btn-group">
@@ -104,10 +104,6 @@
             <div class="col-6 col-md-3">
               <button type="submit" class="btn btn-primary btn-dark btn-block"><em
                   class="fas fa-check-circle"></em>&nbsp;Guardar</button>
-            </div>
-            <div class="col-6 col-md-3">
-              <button type="submit" class="btn btn-danger btn-block"><em
-                  class="fas fa-window-close"></em>&nbsp;Cancelar</button>
             </div>
           </div>
         </div>

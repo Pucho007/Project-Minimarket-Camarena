@@ -25,41 +25,19 @@ export class MantenerusuarioComponent implements OnInit {
   }
   agregarUsuario(){
     let mensaje:string
-    let est:boolean=false
-    if(this.Usuario.apellido===null || this.Usuario.apellido===""){
-      mensaje="El campo apellido esta vacío";
-      est=true
-    } else if(this.Usuario.nombre===null || this.Usuario.nombre===""){
-      mensaje="El campo nombre esta vacío";
-      est=true
-    }else if(this.Usuario.dni===null || this.Usuario.dni===""){
-      mensaje="El campo dni esta vacío";
-      est=true
-    } else if(isNaN(+this.Usuario.dni)){
-      mensaje="Los dígitos del dni deben ser numéricos";
-      est=true
-    }else if( this.Usuario.email===null || this.Usuario.email===""){
-      mensaje="El campo email esta vacío";
-      est=true
-    } else if(!/\S+@\S+\.\S+/.test(this.Usuario.email)){
-      mensaje="El campo correo debe tener un formato válido";
-      est=true
-    }else if(this.Usuario.direccion===null || this.Usuario.direccion===""){
-      mensaje="El campo dirección esta vacío";
-      est=true
-    } else if(this.Usuario.password===null || this.Usuario.password===""){
-      mensaje="El campo contraseña esta vacío";
-      est=true
-    } else if(this.Usuario.telefono===null || this.Usuario.telefono===""){
-      mensaje="El campo telefono esta vacío";
-      est=true
-    }else if(isNaN(+this.Usuario.telefono)){
-      mensaje="Los dígitos del teléfono deben ser numéricos";
-      est=true
-    }
+    let est=false
+    this.Usuario.apellido===null ||this.Usuario.apellido==="" ? mensaje="El campo apellido esta vacío": 
+    this.Usuario.nombre===null ||this.Usuario.nombre==="" ? mensaje="El campo nombre esta vacío":
+    this.Usuario.dni===null || this.Usuario.dni==="" ? mensaje="El campo dni esta vacío" :
+    isNaN(+this.Usuario.dni) ? mensaje="Los dígitos del dni deben ser numéricos" :
+    this.Usuario.email===null || this.Usuario.email==="" ? mensaje="El campo email esta vacío":
+    !/\S+@\S+\.\S+/.test(this.Usuario.email) ? mensaje="El campo correo debe tener un formato válido":
+    this.Usuario.direccion===null || this.Usuario.direccion==="" ? mensaje="El campo dirección esta vacío" :
+    this.Usuario.password===null || this.Usuario.password==="" ? mensaje="El campo contraseña esta vacío" :
+    this.Usuario.telefono===null || this.Usuario.telefono==="" ? mensaje="El campo telefono esta vacío":
+    isNaN(+this.Usuario.telefono) ? mensaje="Los dígitos del teléfono deben ser numéricos": mensaje="";
 
-
-    if(est===false){
+    if(mensaje===""){
       Swal.fire({
         title: 'Agregar participante',
         text: `¿Está seguro que desea agregar a ${this.Usuario.nombre} ${this.Usuario.apellido}?`,
@@ -76,6 +54,7 @@ export class MantenerusuarioComponent implements OnInit {
          this.usuarioservice.save(this.Usuario).subscribe(
 
            m=>{this.listar();
+            this.reset()
              Swal.fire("Participante registrado","Participnate registrado con éxito","success")}
          )
         }
@@ -119,5 +98,15 @@ export class MantenerusuarioComponent implements OnInit {
 
   actualizar(data){ console.log(data)
     
+  }
+
+  reset(){
+    this.Usuario.apellido=""
+    this.Usuario.nombre=""
+    this.Usuario.email=""
+    this.Usuario.direccion=""
+    this.Usuario.dni=""
+    this.Usuario.password=""
+    this.Usuario.telefono=""
   }
 }
